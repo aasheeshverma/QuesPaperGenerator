@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<form name="myform" action="http://127.0.0.1:5000/av_myaction" method="GET" onsubmit="return validate()">
+		Enter number of Objective Questions:
+		<input name="objCount" type="text" onkeypress='return ((event.charCode==0) || (event.charCode >= 48 && event.charCode <= 57))'></input><br><br>
+		
+		Enter Objective Questions' duration(in seconds):
+		<input name="objTime" type="text" onkeypress='return ((event.charCode==0) || (event.charCode >= 48 && event.charCode <= 57))'></input><br><br>
+		
+		Enter number of Subjective Questions:
+		<input name="subjCount" type="text" onkeypress='return ((event.charCode==0) || (event.charCode >= 48 && event.charCode <= 57))'></input><br><br>
+		
+		Enter Subjective Questions' duration(in seconds):
+		<input name="subjTime" type="text" onkeypress='return ((event.charCode==0) || (event.charCode >= 48 && event.charCode <= 57))'></input><br><br>
+		
+		<input type="submit" id="btn01" value="Submit"><br>
+	</form>
+</body>
+
+
+<script type="text/javascript">
+	function validate(){
+		
+		console.log("jkhasf?:");
+		
+		var range = {min : 1, max : 100};
+		var val = document.myform.objCount.value;
+		if( val<range.min || val>range.max ){
+			alert("please enter a valid value of objCount");
+			document.myform.objCount.focus();
+			return false;
+		}
+		
+		range.min = 2;
+		range.max = 1000;
+		val = document.myform.objTime.value;
+		if( val<range.min || val>range.max )
+			alert("please enter a valid value of objTime");
+			document.myform.objTime.focus();
+			return false;
+		}
+		
+		range.min = 1;
+		range.max = 100;
+		val = document.myform.subjCount.value;
+		if( val<range.min || val>range.max ){
+			alert("please enter a valid value of subjCount");
+			document.myform.subjCount.focus();
+			return false;
+		}
+		
+		range.min = 2;
+		range.max = 1000;
+		val = document.myform.subjTime.value;
+		if( val<range.min || val>range.max )
+			alert("please enter a valid value of subjTime");
+			document.myform.subjTime.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+
+</html>
